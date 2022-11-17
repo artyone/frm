@@ -9,7 +9,7 @@ import tkinter.ttk as ttk
 
 
 class Config(object):
-    """Класс работы с кофиг файлом"""
+    """Класс работы с конфиг файлом"""
 
     def __init__(self):
         self.path_dir = os.path.dirname(__file__)
@@ -22,7 +22,7 @@ class Config(object):
         self.config.read(self.path)
 
     def get_command1(self):
-        """Позволяет получиь из конфига первую команду"""
+        """Позволяет получить из конфига первую команду"""
         app_path = self.get_default_value('app_path')
         args = self.get_config_section('COMMAND1')['args']
         value = self.get_config_section('COMMAND1')['value']
@@ -33,7 +33,7 @@ class Config(object):
             return ''
 
     def get_command2(self):
-        """Позволяет получиь из конфига вторую команду"""
+        """Позволяет получить из конфига вторую команду"""
         app_path = self.get_default_value(key='app_path')
         args = self.get_config_section(section='COMMAND2')['args']
         value = self.get_config_section(section='COMMAND2')['value']
@@ -74,14 +74,14 @@ class Config(object):
             self.config.write(config_file)
 
     def set_config_value(self, block, key, value):
-        """Запись необходимыз значений в кофинг"""
+        """Запись необходимых значений в конфиг"""
         self.config.set(block, key, value)
         with open(self.path, 'w') as config_file:
             self.config.write(config_file)
         return True
 
     def check_app_path(self):
-        """Проверка, что файл приложения, указанный в конфиге существует"""
+        """Проверка, что файл приложения, указанный в конфиге, существует"""
         if os.path.isfile(self.get_default_value(key='app_path')):
             return True
         else:
@@ -89,7 +89,7 @@ class Config(object):
 
 
 class Commander(object):
-    """Класс для выполнения команд в компандной строке"""
+    """Класс для выполнения команд в командной строке"""
 
     def __init__(self):
         pass
@@ -124,7 +124,7 @@ class Commander(object):
         return result
 
 class Alert(tk.Toplevel):
-    """Класс вывода сообщений на экран и их расшифрофке, создается обязательно с message"""
+    """Класс вывода сообщений на экран и их расшифровке, создается обязательно с message"""
 
     def __init__(self, message):
         super().__init__()
@@ -243,7 +243,7 @@ class Alert(tk.Toplevel):
                      pady=5, sticky='n', columnspan=2)
 
     def __set_center_window(self):
-        """Помещение на центр экрана созданнгого алерта"""
+        """Помещение на центр экрана созданногого алерта"""
         self.update_idletasks()
         s = self.geometry()
         s = s.split('+')
